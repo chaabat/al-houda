@@ -1,0 +1,23 @@
+# env and secrets
+.env
+.env.*
+!.env.example
+
+# deps and builds
+node_modules/
+vendor/
+.next/
+dist/
+coverage/
+
+# Laravel
+api/storage/*.key
+api/storage/logs/
+api/bootstrap/cache/*
+!api/bootstrap/cache/.gitignore
+
+# OS and IDE
+.DS_Store
+.idea/
+.vscode/
+*.log
