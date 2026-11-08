@@ -1,14 +1,18 @@
-up:
-	docker compose up -d --build
+# Raccourcis Docker (Git Bash / WSL / Linux / macOS).
 
-down:
-	docker compose down
+up:            ## Lance le site en développement → http://localhost:3000/fr
+	docker compose up -d --build web
 
-logs:
-	docker compose logs -f
+down:          ## Arrête tous les conteneurs
+	docker compose --profile prod down
 
-test-api:
-	docker compose exec api php artisan test
+logs:          ## Affiche les logs du serveur de développement
+	docker compose logs -f web
 
-migrate:
-	docker compose exec api php artisan migrate
+prod:          ## Construit et lance la version de production (nginx) → http://localhost:8080/fr
+	docker compose --profile prod up -d --build site
+
+lint:          ## Vérifie le code et les traductions
+	docker compose exec web sh -c "npm run lint && npm run typecheck && npm run i18n:check"
+
+.PHONY: up down logs prod lint

@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "siteName": "Institution Al-Houda · Illzach",
+    "title": "Institution Al-Houda · Illzach",
+    "description": "A place of faith, knowledge and sharing. Illzach mosque: prayer times, teaching, news and donations."
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "mainNavigation": "Main navigation",
+    "language": "Language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "topbar": {
+    "tagline": "May Allah accept our good deeds",
+    "email": "Send an email",
+    "map": "View the address on the map"
+  },
+  "nav": {
+    "home": "Home",
+    "association": "Our association",
+    "membership": "Membership",
+    "editorial": "Editorial – A word from the President",
+    "statutes": "Statutes",
+    "rules": "Internal rules",
+    "projects": "Projects",
+    "commissions": "Committees",
+    "worship": "Worship",
+    "women": "Women",
+    "maintenance": "Maintenance / Technical",
+    "security": "Security",
+    "teaching": "Education",
+    "registration": "Registration",
+    "courses": "Courses",
+    "teachers": "Teaching team",
+    "portal": "Education portal",
+    "donations": "Donations",
+    "contact": "Contact",
+    "prayerTimes": "Prayer times",
+    "news": "News"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Institution Al-Houda · Illzach",
+      "title": "A place of faith, knowledge and sharing.",
+      "subtitle": "A mosque open to all, to learn, to find peace and to grow together.",
+      "cta": "Discover our mosque"
+    },
+    "chips": {
+      "teaching": "Teaching",
+      "prayerTimes": "Prayer times",
+      "community": "Community",
+      "donations": "Donations"
+    },
+    "news": {
+      "title": "Follow the mosque's news",
+      "text": "Announcements, events, classes and highlights: find all the news of the Al-Houda mosque on our social networks."
+    },
+    "prayer": {
+      "title": "Prayer times",
+      "today": "Today",
+      "viewAll": "See all prayer times",
+      "iframeTitle": "Mosque prayer times (Mawaqit)",
+      "notConfigured": "Prayer times will be available soon."
+    },
+    "features": {
+      "teaching": {
+        "title": "Teaching",
+        "text": "Classes and learning"
+      },
+      "events": {
+        "title": "Events",
+        "text": "Talks and activities"
+      },
+      "donations": {
+        "title": "Donations",
+        "text": "Support our mosque"
+      },
+      "community": {
+        "title": "Community",
+        "text": "Stronger together"
+      }
+    }
+  },
+  "footer": {
+    "about": "Located in Illzach, our mosque is a place of welcome, spirituality and solidarity.",
+    "quickLinks": "Quick links",
+    "contact": "Contact",
+    "legal": "Legal information",
+    "privacy": "Privacy policy",
+    "legalNotice": "Legal notice",
+    "rights": "All rights reserved.",
+    "followUs": "Follow us"
+  },
+  "common": {
+    "readMore": "Read more",
+    "backHome": "Back to home"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you are looking for does not exist or has been moved."
+  },
+  "error": {
+    "title": "Something went wrong",
+    "retry": "Try again"
+  },
+  "header": {
+    "home": "Institution Al-Houda, back to home"
+  },
+  "page": {
+    "home": "Home",
+    "breadcrumb": "Breadcrumb",
+    "frenchOnly": "This content is only available in French for now."
+  },
+  "association": {
+    "eyebrow": "Our association",
+    "overview": "Overview",
+    "editorialShort": "A word from the President",
+    "sectionNav": "Association pages",
+    "keyFacts": "At a glance",
+    "discover": "Discover the association",
+    "readMore": "Learn more",
+    "ourValues": "Our values",
+    "toc": "Contents",
+    "article": "Article",
+    "membershipUi": {
+      "fee": "Membership fee",
+      "frequencies": "Payment schedule",
+      "payment": "Payment methods",
+      "conditions": "Membership requirements",
+      "active": "Active member",
+      "apply": "Join online",
+      "contact": "Contact us"
+    },
+    "projectsUi": {
+      "soon": "The association's projects will be presented here soon.",
+      "support": "In the meantime, you can support the mosque and its projects with a donation.",
+      "donate": "Donate on HelloAsso"
+    }
+  },
+  "commissions": {
+    "eyebrow": "Committees",
+    "title": "The association's committees",
+    "overview": "Overview",
+    "sectionNav": "Committee pages",
+    "readMore": "Discover",
+    "soonBadge": "Coming soon",
+    "soonCard": "This committee's page is being prepared.",
+    "soonTitle": "Page in preparation",
+    "soonText": "This committee will be presented here soon. Would you like to get involved or learn more? Contact the association.",
+    "join": "Contact the association",
+    "allCommissions": "All committees",
+    "contactImam": "Write to the imam"
+  },
+  "teaching": {
+    "overview": "Overview",
+    "sectionNav": "Education pages",
+    "registerCta": "Register my child",
+    "portalCta": "Education portal",
+    "coursesUi": {
+      "schedulesSoon": "Schedules, levels and groups are shared with families at registration."
+    },
+    "teamUi": {
+      "soon": "Our teachers will be introduced here soon."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Need some information? Write to us and we will get back to you as soon as possible.",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "followUs": "Follow us",
+    "formTitle": "Need some information?",
+    "formIntro": "Fill in this form to contact us and we will get back to you as soon as possible.",
+    "mapTitle": "Map to the Al-Houda mosque",
+    "emails": {
+      "general": "General",
+      "secretariat": "Secretariat",
+      "imam": "Imam"
+    },
+    "form": {
+      "recipient": "Choose a contact",
+      "recipientNone": "-- Select --",
+      "recipients": {
+        "contact": "General contact",
+        "teaching": "Education",
+        "presidency": "Presidency",
+        "secretariat": "Secretariat",
+        "imam": "Imam"
+      },
+      "lastName": "Last name",
+      "firstName": "First name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending…",
+      "privacyNote": "Your details are only used to reply to your message.",
+      "errors": {
+        "unavailable": "Your message could not be sent. Please try again later or write to us directly at {email}."
+      },
+      "successTitle": "Message sent",
+      "successText": "Thank you! Your message has been received. We will get back to you as soon as possible."
+    }
+  }
+}

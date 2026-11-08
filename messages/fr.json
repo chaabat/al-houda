@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "siteName": "Institution Al-Houda · Illzach",
+    "title": "Institution Al-Houda · Illzach",
+    "description": "Un lieu de foi, de savoir et de partage. Mosquée d'Illzach : horaires de prière, enseignement, actualités et dons."
+  },
+  "a11y": {
+    "skipToContent": "Aller au contenu",
+    "mainNavigation": "Navigation principale",
+    "language": "Langue",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "topbar": {
+    "tagline": "Qu'Allah accepte nos bonnes actions",
+    "email": "Envoyer un email",
+    "map": "Voir l'adresse sur la carte"
+  },
+  "nav": {
+    "home": "Accueil",
+    "association": "Notre association",
+    "membership": "Adhésion",
+    "editorial": "Éditorial – Le mot du Président",
+    "statutes": "Statuts",
+    "rules": "Règlement intérieur",
+    "projects": "Projets",
+    "commissions": "Commissions",
+    "worship": "Culte",
+    "women": "Femmes",
+    "maintenance": "Maintenance / Technique",
+    "security": "Sécurité",
+    "teaching": "Pôle enseignement",
+    "registration": "Inscription",
+    "courses": "Cours",
+    "teachers": "Équipe pédagogique",
+    "portal": "Portail enseignement",
+    "donations": "Dons",
+    "contact": "Contacts",
+    "prayerTimes": "Horaires de prière",
+    "news": "Actualités"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Institution Al-Houda · Illzach",
+      "title": "Un lieu de foi, de savoir et de partage.",
+      "subtitle": "Une mosquée ouverte à tous, pour apprendre, se recueillir et grandir ensemble.",
+      "cta": "Découvrir notre mosquée"
+    },
+    "chips": {
+      "teaching": "Enseignement",
+      "prayerTimes": "Horaires de prière",
+      "community": "Communauté",
+      "donations": "Dons"
+    },
+    "news": {
+      "title": "Suivez l’actualité de la mosquée",
+      "text": "Annonces, événements, cours et temps forts : retrouvez toutes les nouvelles de la mosquée Al-Houda sur nos réseaux."
+    },
+    "prayer": {
+      "title": "Horaires de prière",
+      "today": "Aujourd'hui",
+      "viewAll": "Voir tous les horaires",
+      "iframeTitle": "Horaires de prière de la mosquée (Mawaqit)",
+      "notConfigured": "Les horaires de prière seront bientôt disponibles."
+    },
+    "features": {
+      "teaching": {
+        "title": "Enseignement",
+        "text": "Cours et apprentissage"
+      },
+      "events": {
+        "title": "Événements",
+        "text": "Conférences et activités"
+      },
+      "donations": {
+        "title": "Dons",
+        "text": "Soutenez notre mosquée"
+      },
+      "community": {
+        "title": "Communauté",
+        "text": "Ensemble, plus forts"
+      }
+    }
+  },
+  "footer": {
+    "about": "Située à Illzach, notre mosquée est un lieu d'accueil, de spiritualité et de solidarité.",
+    "quickLinks": "Liens rapides",
+    "contact": "Contact",
+    "legal": "Informations légales",
+    "privacy": "Politique de confidentialité",
+    "legalNotice": "Mentions légales",
+    "rights": "Tous droits réservés.",
+    "followUs": "Suivez-nous"
+  },
+  "common": {
+    "readMore": "Lire la suite",
+    "backHome": "Retour à l'accueil"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "text": "La page que vous cherchez n'existe pas ou a été déplacée."
+  },
+  "error": {
+    "title": "Une erreur est survenue",
+    "retry": "Réessayer"
+  },
+  "header": {
+    "home": "Institution Al-Houda, retour à l'accueil"
+  },
+  "page": {
+    "home": "Accueil",
+    "breadcrumb": "Fil d’Ariane",
+    "frenchOnly": "Ce contenu est disponible uniquement en français pour le moment."
+  },
+  "association": {
+    "eyebrow": "Notre association",
+    "overview": "Présentation",
+    "editorialShort": "Le mot du Président",
+    "sectionNav": "Pages de l’association",
+    "keyFacts": "En bref",
+    "discover": "Découvrir l’association",
+    "readMore": "En savoir plus",
+    "ourValues": "Nos valeurs",
+    "toc": "Sommaire",
+    "article": "Article",
+    "membershipUi": {
+      "fee": "Cotisation",
+      "frequencies": "Rythme de paiement",
+      "payment": "Moyens de paiement",
+      "conditions": "Conditions d’adhésion",
+      "active": "Adhérent actif",
+      "apply": "Adhérer en ligne",
+      "contact": "Nous contacter"
+    },
+    "projectsUi": {
+      "soon": "Les projets de l’association seront bientôt présentés ici.",
+      "support": "En attendant, vous pouvez soutenir la mosquée et ses projets par un don.",
+      "donate": "Faire un don sur HelloAsso"
+    }
+  },
+  "commissions": {
+    "eyebrow": "Commissions",
+    "title": "Les commissions de l’association",
+    "overview": "Présentation",
+    "sectionNav": "Pages des commissions",
+    "readMore": "Découvrir",
+    "soonBadge": "Bientôt",
+    "soonCard": "La page de cette commission est en préparation.",
+    "soonTitle": "Page en préparation",
+    "soonText": "La présentation de cette commission sera bientôt disponible. Vous souhaitez vous engager ou en savoir plus ? Contactez l’association.",
+    "join": "Contacter l’association",
+    "allCommissions": "Toutes les commissions",
+    "contactImam": "Écrire à l’imam"
+  },
+  "teaching": {
+    "overview": "Présentation",
+    "sectionNav": "Pages du pôle enseignement",
+    "registerCta": "Inscrire mon enfant",
+    "portalCta": "Portail enseignement",
+    "coursesUi": {
+      "schedulesSoon": "Horaires, niveaux et groupes sont communiqués aux familles lors de l’inscription."
+    },
+    "teamUi": {
+      "soon": "La présentation des enseignants et enseignantes sera bientôt disponible."
+    }
+  },
+  "contact": {
+    "title": "Contacts",
+    "lead": "Besoin d’un renseignement ? Écrivez-nous, nous vous répondrons dans les meilleurs délais.",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "Email",
+    "followUs": "Suivez-nous",
+    "formTitle": "Besoin d’un renseignement ?",
+    "formIntro": "Afin de nous contacter, remplissez ce formulaire et nous vous répondrons dans les meilleurs délais.",
+    "mapTitle": "Plan d’accès à la mosquée Al-Houda",
+    "emails": {
+      "general": "Général",
+      "secretariat": "Secrétariat",
+      "imam": "Imam"
+    },
+    "form": {
+      "recipient": "Choisissez un contact",
+      "recipientNone": "-- Sélectionner --",
+      "recipients": {
+        "contact": "Contact",
+        "teaching": "Enseignement",
+        "presidency": "Présidence",
+        "secretariat": "Secrétariat",
+        "imam": "Imam"
+      },
+      "lastName": "Nom",
+      "firstName": "Prénom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "send": "Envoyer",
+      "sending": "Envoi en cours…",
+      "privacyNote": "Vos informations servent uniquement à répondre à votre message.",
+      "errors": {
+        "unavailable": "Le message n’a pas pu être envoyé. Réessayez plus tard ou écrivez-nous directement à {email}."
+      },
+      "successTitle": "Message envoyé",
+      "successText": "Merci ! Votre message a bien été reçu. Nous vous répondrons dans les meilleurs délais."
+    }
+  }
+}

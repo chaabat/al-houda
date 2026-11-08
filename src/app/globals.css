@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Palette approved on the mockup. "sage" is a derived tint for soft cards. */
+@theme {
+  --color-brand: #064e3b;
+  --color-brand-light: #176b50;
+  --color-cream: #faf8f1;
+  --color-gold: #d9a441;
+  --color-ink: #172b26;
+  --color-sage: #eef2ea;
+}
+
+/* Latin fonts first, Arabic fonts as fallback for Arabic glyphs. */
+@theme inline {
+  --font-sans: var(--font-inter), var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), var(--font-naskh), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-light);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+}

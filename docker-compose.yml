@@ -1,59 +1,32 @@
+# Site statique Next.js de la mosquée Al-Houda.
+#   Développement : docker compose up            → http://localhost:3000/fr
+#   Production    : docker compose --profile prod up -d --build site   → http://localhost:8080/fr
+
 services:
-  db:
-    image: postgres:17-alpine
-    container_name: alhouda-db
-    restart: unless-stopped
+  
+  web:
+    build:
+      context: .
+      target: dev
+    container_name: alhouda-web
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    ports:
-      - "5432:5432"
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      WATCHPACK_POLLING: "true"
     volumes:
-      - db_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
 
-  redis:
-    image: redis:7-alpine
-    container_name: alhouda-redis
+  site:
+    profiles: ["prod"]
+    build:
+      context: .
+      target: prod
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:8080}
+    container_name: alhouda-site
     restart: unless-stopped
     ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
-
-  mailpit:
-    image: axllent/mailpit:latest
-    container_name: alhouda-mailpit
-    restart: unless-stopped
-    ports:
-      - "1025:1025"
-      - "8025:8025"
-
-  api:
-    build: ./docker/php
-    container_name: alhouda-api
-    working_dir: /var/www/html
-    command: php artisan serve --host=0.0.0.0 --port=8000
-    volumes:
-      - ./api:/var/www/html
-    ports:
-      - "8000:8000"
-    depends_on:
-      db:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-
-volumes:
-  db_data:
-  redis_data:
+      - "8080:80"
