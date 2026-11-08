@@ -1,7 +1,7 @@
-import type { LegalDocument } from "./types";
+import type { LegalDocument } from "../types";
 
-// Official text adopted by the Extraordinary General Assembly of 23 September 2025 (French only).
-export const INTERNAL_RULES: LegalDocument = {
+// Official text — adopted by the Extraordinary General Assembly of 23 September 2025.
+export const fr: LegalDocument = {
   title: "Règlement intérieur de l’Association Al-Houda",
   adopted: "Adopté aux termes de l’Assemblée Générale Extraordinaire du 23 septembre 2025",
   intro:

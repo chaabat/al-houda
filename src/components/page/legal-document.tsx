@@ -1,7 +1,6 @@
-import { FileText } from "lucide-react";
+import { FileText, Languages } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import type { LegalBlock, LegalDocument as Doc } from "@/content/association/types";
-import { FrenchOnlyNote } from "./french-only-note";
 
 /** Bold the clause number at the start of a paragraph ("14.2.", "4-3", "a.") so long articles scan easily. */
 function Numbered({ text }: { text: string }) {
@@ -70,7 +69,7 @@ export async function LegalDocument({ doc }: { doc: Doc }) {
           className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-brand/10"
         >
           <p className="font-serif text-lg font-semibold text-brand">{t("toc")}</p>
-          <ol lang="fr" dir="ltr" className="mt-3 space-y-0.5 text-sm">
+          <ol className="mt-3 space-y-0.5 text-sm">
             {doc.articles.map((article) => (
               <li key={article.number}>
                 <a
@@ -87,9 +86,7 @@ export async function LegalDocument({ doc }: { doc: Doc }) {
       </aside>
 
       <div className="space-y-5">
-        <FrenchOnlyNote />
-
-        <div lang="fr" dir="ltr" className="space-y-5">
+        <div className="space-y-5">
           <header className="rounded-3xl bg-sage p-6 ring-1 ring-brand/10 lg:p-8">
             <div className="flex items-start gap-4">
               <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand text-white">
@@ -107,13 +104,21 @@ export async function LegalDocument({ doc }: { doc: Doc }) {
                 ))}
               </ul>
             ) : null}
+            {doc.translationNote ? (
+              <p className="mt-4 flex items-start gap-2 rounded-2xl bg-gold/15 px-4 py-3 text-sm text-ink">
+                <Languages className="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden="true" />
+                {doc.translationNote}
+              </p>
+            ) : null}
             {doc.intro ? <p className="mt-4 text-ink/85">{doc.intro}</p> : null}
             {doc.identity?.length ? (
               <dl className="mt-5 grid gap-3 sm:grid-cols-2">
                 {doc.identity.map(([label, value]) => (
                   <div key={label} className="rounded-2xl bg-white px-4 py-3">
                     <dt className="text-xs tracking-wide text-ink/60 uppercase">{label}</dt>
-                    <dd className="font-medium text-ink">{value}</dd>
+                    <dd dir="auto" className="font-medium text-ink rtl:text-right">
+                      {value}
+                    </dd>
                   </div>
                 ))}
               </dl>

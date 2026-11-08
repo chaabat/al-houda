@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SmartLink } from "@/components/ui/smart-link";
-import { SITE } from "@/config/site";
+import { DONATION_URL } from "@/config/site";
 import { Link } from "@/i18n/navigation";
 import { PrayerTimesCard } from "./prayer-times-card";
 
@@ -12,13 +12,13 @@ const CHIPS = [
   { key: "teaching", href: "/teaching", Icon: BookOpen },
   { key: "prayerTimes", href: "/#prayer-times", Icon: CalendarDays },
   { key: "community", href: "/association", Icon: Users },
-  { key: "donations", href: SITE.links.helloasso || "/donations", Icon: Heart },
+  { key: "donations", href: DONATION_URL, Icon: Heart },
 ] as const;
 
 const FEATURES = [
   { key: "teaching", href: "/teaching", Icon: BookOpen },
-  { key: "events", href: "/news", Icon: CalendarDays },
-  { key: "donations", href: SITE.links.helloasso || "/donations", Icon: HandHeart },
+  { key: "events", href: "/#events", Icon: CalendarDays },
+  { key: "donations", href: DONATION_URL, Icon: HandHeart },
   { key: "community", href: "/association", Icon: Users },
 ] as const;
 

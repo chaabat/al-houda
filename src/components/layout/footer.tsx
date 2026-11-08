@@ -113,20 +113,11 @@ export async function Footer() {
       <div className="border-t border-white/15">
         <Container className="flex flex-col items-center justify-between gap-3 py-5 text-xs text-white/75 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} Institution Al-Houda · Illzach. {t("rights")}
+            © {new Date().getFullYear()} Association Al-Houda · Illzach. {t("rights")}
           </p>
-          <ul className="flex gap-4">
-            <li>
-              <Link href="/legal/privacy" className="hover:underline">
-                {t("privacy")}
-              </Link>
-            </li>
-            <li>
-              <Link href="/legal/notice" className="hover:underline">
-                {t("legalNotice")}
-              </Link>
-            </li>
-          </ul>
+          <Link href="/association/rules" className="hover:underline">
+            {t("privacy")}
+          </Link>
         </Container>
       </div>
     </footer>

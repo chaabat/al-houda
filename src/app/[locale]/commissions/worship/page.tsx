@@ -13,12 +13,12 @@ import {
 import { getTranslations } from "next-intl/server";
 import { CommissionsNav } from "@/components/commissions/commissions-nav";
 import { MosqueIcon } from "@/components/home/mosque-icon";
-import { FrenchOnlyNote } from "@/components/page/french-only-note";
 import { PageHeader } from "@/components/page/page-header";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SITE } from "@/config/site";
-import { WORSHIP } from "@/content/commissions/worship";
+import { WORSHIP as WORSHIP_CONTENT } from "@/content/commissions/worship";
+import { localized } from "@/content/localized";
 import { initPage, navMetadata, type LocaleParams } from "@/lib/page";
 
 const DOMAIN_ICONS = { quran: BookOpenText, fiqh: Scale, sira: ScrollText } as const;
@@ -36,7 +36,8 @@ function Eyebrow({ children, light }: { children: string; light?: boolean }) {
 }
 
 export default async function WorshipPage(props: LocaleParams) {
-  await initPage(props);
+  const locale = await initPage(props);
+  const WORSHIP = localized(WORSHIP_CONTENT, locale);
   const [tNav, t] = await Promise.all([getTranslations("nav"), getTranslations("commissions")]);
   const imamEmail = SITE.contact.imamEmail;
 
@@ -45,16 +46,12 @@ export default async function WorshipPage(props: LocaleParams) {
       <PageHeader
         eyebrow={WORSHIP.eyebrow}
         title={WORSHIP.title}
-        lead={<span lang="fr">{WORSHIP.intro[0]}</span>}
+        lead={WORSHIP.intro[0]}
         crumbs={[{ label: tNav("commissions"), href: "/commissions" }, { label: tNav("worship") }]}
       />
       <CommissionsNav current="/commissions/worship" />
 
-      <Container className="pt-12">
-        <FrenchOnlyNote />
-      </Container>
-
-      <div lang="fr" dir="ltr" className="space-y-20 pt-8 pb-6">
+      <div className="space-y-20 pt-12 pb-6">
         {/* Imam */}
         <Container>
           <section className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-16">
@@ -107,7 +104,7 @@ export default async function WorshipPage(props: LocaleParams) {
 
             <ul className="mt-12 grid gap-5 lg:grid-cols-3">
               {WORSHIP.domains.map((domain) => {
-                const Icon = DOMAIN_ICONS[domain.key as keyof typeof DOMAIN_ICONS];
+                const Icon = DOMAIN_ICONS[domain.key];
                 return (
                   <li
                     key={domain.key}

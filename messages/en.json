@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteName": "Institution Al-Houda · Illzach",
-    "title": "Institution Al-Houda · Illzach",
+    "siteName": "Al-Houda Mosque · Illzach",
+    "title": "Al-Houda Mosque · Illzach",
     "description": "A place of faith, knowledge and sharing. Illzach mosque: prayer times, teaching, news and donations."
   },
   "a11y": {
@@ -36,12 +36,11 @@
     "portal": "Education portal",
     "donations": "Donations",
     "contact": "Contact",
-    "prayerTimes": "Prayer times",
-    "news": "News"
+    "prayerTimes": "Prayer times"
   },
   "home": {
     "hero": {
-      "eyebrow": "Institution Al-Houda · Illzach",
+      "eyebrow": "Al-Houda Mosque · Illzach",
       "title": "A place of faith, knowledge and sharing.",
       "subtitle": "A mosque open to all, to learn, to find peace and to grow together.",
       "cta": "Discover our mosque"
@@ -86,9 +85,7 @@
     "about": "Located in Illzach, our mosque is a place of welcome, spirituality and solidarity.",
     "quickLinks": "Quick links",
     "contact": "Contact",
-    "legal": "Legal information",
     "privacy": "Privacy policy",
-    "legalNotice": "Legal notice",
     "rights": "All rights reserved.",
     "followUs": "Follow us"
   },
@@ -105,12 +102,11 @@
     "retry": "Try again"
   },
   "header": {
-    "home": "Institution Al-Houda, back to home"
+    "home": "Al-Houda Mosque, back to home"
   },
   "page": {
     "home": "Home",
-    "breadcrumb": "Breadcrumb",
-    "frenchOnly": "This content is only available in French for now."
+    "breadcrumb": "Breadcrumb"
   },
   "association": {
     "eyebrow": "Our association",

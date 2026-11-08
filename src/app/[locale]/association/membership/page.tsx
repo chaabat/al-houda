@@ -10,12 +10,12 @@ import {
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { AssociationNav } from "@/components/association/association-nav";
-import { FrenchOnlyNote } from "@/components/page/french-only-note";
 import { PageHeader } from "@/components/page/page-header";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SITE } from "@/config/site";
-import { MEMBERSHIP } from "@/content/association/membership";
+import { MEMBERSHIP, MEMBERSHIP_PHOTO } from "@/content/association/membership";
+import { localized } from "@/content/localized";
 import { Link } from "@/i18n/navigation";
 import { initPage, navMetadata, type LocaleParams } from "@/lib/page";
 
@@ -35,7 +35,8 @@ function CheckList({ items }: { items: string[] }) {
 }
 
 export default async function MembershipPage(props: LocaleParams) {
-  await initPage(props);
+  const locale = await initPage(props);
+  const membership = localized(MEMBERSHIP, locale);
   const [tNav, t] = await Promise.all([getTranslations("nav"), getTranslations("association")]);
 
   // Membership is paid online on HelloAsso, like on alhouda.org.
@@ -45,7 +46,7 @@ export default async function MembershipPage(props: LocaleParams) {
     <>
       <PageHeader
         eyebrow={t("eyebrow")}
-        title={MEMBERSHIP.title}
+        title={membership.title}
         crumbs={[
           { label: tNav("association"), href: "/association" },
           { label: tNav("membership") },
@@ -54,21 +55,19 @@ export default async function MembershipPage(props: LocaleParams) {
       <AssociationNav current="/association/membership" />
 
       <Container className="space-y-14 py-14">
-        <FrenchOnlyNote />
-
-        <div lang="fr" dir="ltr" className="space-y-14">
+        <div className="space-y-14">
           <section className="grid items-center gap-10 lg:grid-cols-2">
             <div className="relative overflow-hidden rounded-[2rem] shadow-xl ring-1 ring-brand/10">
               <Image
-                src={MEMBERSHIP.photo}
-                alt="Mosquée Al-Houda, Illzach"
+                src={MEMBERSHIP_PHOTO}
+                alt={membership.photoAlt}
                 width={1052}
                 height={480}
                 className="aspect-[16/9] w-full object-cover"
               />
             </div>
             <div className="space-y-4 text-lg leading-relaxed text-ink/90">
-              {MEMBERSHIP.lead.map((paragraph) => (
+              {membership.lead.map((paragraph) => (
                 <p key={paragraph.slice(0, 40)}>{paragraph}</p>
               ))}
               {applyHref ? (
@@ -93,10 +92,10 @@ export default async function MembershipPage(props: LocaleParams) {
                 <h2 className="font-semibold">{t("membershipUi.fee")}</h2>
               </div>
               <p className="mt-6">
-                <span className="font-serif text-6xl font-semibold">{MEMBERSHIP.fee.amount}</span>
-                <span className="ms-2 text-lg text-white/80">{MEMBERSHIP.fee.period}</span>
+                <span className="font-serif text-6xl font-semibold">{membership.fee.amount}</span>
+                <span className="ms-2 text-lg text-white/80">{membership.fee.period}</span>
               </p>
-              <p className="mt-4 text-sm text-white/75">{MEMBERSHIP.fee.note}</p>
+              <p className="mt-4 text-sm text-white/75">{membership.fee.note}</p>
             </div>
 
             <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-brand/10 lg:col-span-2">
@@ -107,7 +106,7 @@ export default async function MembershipPage(props: LocaleParams) {
                 </h2>
               </div>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                {MEMBERSHIP.frequencies.map((frequency) => (
+                {membership.frequencies.map((frequency) => (
                   <li key={frequency.label} className="rounded-2xl bg-sage px-4 py-3">
                     <p className="font-semibold text-brand">{frequency.label}</p>
                     <p className="text-sm text-ink/75">{frequency.detail}</p>
@@ -116,7 +115,7 @@ export default async function MembershipPage(props: LocaleParams) {
               </ul>
               <h3 className="mt-6 font-semibold text-ink">{t("membershipUi.payment")}</h3>
               <ul className="mt-3 flex flex-wrap gap-2">
-                {MEMBERSHIP.payment.map((mode) => (
+                {membership.payment.map((mode) => (
                   <li
                     key={mode}
                     className="rounded-full bg-gold/20 px-4 py-1.5 text-sm font-medium text-ink"
@@ -125,7 +124,7 @@ export default async function MembershipPage(props: LocaleParams) {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-sm text-ink/75">{MEMBERSHIP.paymentNote}</p>
+              <p className="mt-4 text-sm text-ink/75">{membership.paymentNote}</p>
             </div>
           </section>
 
@@ -134,7 +133,7 @@ export default async function MembershipPage(props: LocaleParams) {
               <h2 className="font-serif text-2xl font-semibold text-brand">
                 {t("membershipUi.conditions")}
               </h2>
-              <CheckList items={MEMBERSHIP.conditions} />
+              <CheckList items={membership.conditions} />
             </div>
             <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-brand/10">
               <div className="flex items-center gap-3">
@@ -143,9 +142,9 @@ export default async function MembershipPage(props: LocaleParams) {
                   {t("membershipUi.active")}
                 </h2>
               </div>
-              <CheckList items={MEMBERSHIP.active} />
+              <CheckList items={membership.active} />
               <p className="mt-5 rounded-2xl bg-sage px-4 py-3 text-sm text-ink/80">
-                {MEMBERSHIP.activeNote}
+                {membership.activeNote}
               </p>
             </div>
           </section>
@@ -155,7 +154,7 @@ export default async function MembershipPage(props: LocaleParams) {
               <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gold text-ink">
                 <ReceiptText className="h-5 w-5" aria-hidden="true" />
               </span>
-              <p className="max-w-xl text-ink/85">{MEMBERSHIP.taxNote}</p>
+              <p className="max-w-xl text-ink/85">{membership.taxNote}</p>
             </div>
             <div className="flex flex-wrap gap-3">
               {applyHref ? (

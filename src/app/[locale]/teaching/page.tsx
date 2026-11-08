@@ -8,7 +8,6 @@ import {
   UserPlus,
 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { FrenchOnlyNote } from "@/components/page/french-only-note";
 import { PageHeader } from "@/components/page/page-header";
 import { TeachingCtas } from "@/components/teaching/teaching-ctas";
 import { TeachingNav } from "@/components/teaching/teaching-nav";
@@ -16,7 +15,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SmartLink } from "@/components/ui/smart-link";
 import { REGISTRATION_URL, SITE } from "@/config/site";
-import { TEACHING } from "@/content/teaching/overview";
+import { localized } from "@/content/localized";
+import { TEACHING as TEACHING_CONTENT } from "@/content/teaching/overview";
 import { initPage, navMetadata, type LocaleParams } from "@/lib/page";
 
 const SUBJECT_ICONS = { arabic: Languages, quran: BookOpenText } as const;
@@ -33,7 +33,8 @@ function Eyebrow({ children, light }: { children: string; light?: boolean }) {
 }
 
 export default async function TeachingPage(props: LocaleParams) {
-  await initPage(props);
+  const locale = await initPage(props);
+  const TEACHING = localized(TEACHING_CONTENT, locale);
   const [tNav, t] = await Promise.all([getTranslations("nav"), getTranslations("teaching")]);
   const portal = SITE.links.teachingPortal;
 
@@ -42,18 +43,14 @@ export default async function TeachingPage(props: LocaleParams) {
       <PageHeader
         eyebrow={TEACHING.eyebrow}
         title={TEACHING.title}
-        lead={<span lang="fr">{TEACHING.intro}</span>}
+        lead={TEACHING.intro}
         crumbs={[{ label: tNav("teaching") }]}
       >
         <TeachingCtas />
       </PageHeader>
       <TeachingNav current="/teaching" />
 
-      <Container className="pt-12">
-        <FrenchOnlyNote />
-      </Container>
-
-      <div lang="fr" dir="ltr" className="space-y-20 pt-8">
+      <div className="space-y-20 pt-12">
         {/* Key figures + trust */}
         <Container>
           <section className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
@@ -95,7 +92,7 @@ export default async function TeachingPage(props: LocaleParams) {
             </div>
             <ul className="mt-10 grid gap-5 lg:grid-cols-2">
               {TEACHING.program.subjects.map((subject) => {
-                const Icon = SUBJECT_ICONS[subject.key as keyof typeof SUBJECT_ICONS];
+                const Icon = SUBJECT_ICONS[subject.key];
                 return (
                   <li
                     key={subject.key}
@@ -123,7 +120,7 @@ export default async function TeachingPage(props: LocaleParams) {
               })}
             </ul>
             <blockquote className="mx-auto mt-10 max-w-3xl text-center font-serif text-2xl leading-snug text-brand">
-              « {TEACHING.program.goal} »
+              {TEACHING.program.goal}
             </blockquote>
           </Container>
         </section>

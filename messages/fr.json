@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteName": "Institution Al-Houda · Illzach",
-    "title": "Institution Al-Houda · Illzach",
+    "siteName": "Mosquée Al-Houda · Illzach",
+    "title": "Mosquée Al-Houda · Illzach",
     "description": "Un lieu de foi, de savoir et de partage. Mosquée d'Illzach : horaires de prière, enseignement, actualités et dons."
   },
   "a11y": {
@@ -36,12 +36,11 @@
     "portal": "Portail enseignement",
     "donations": "Dons",
     "contact": "Contacts",
-    "prayerTimes": "Horaires de prière",
-    "news": "Actualités"
+    "prayerTimes": "Horaires de prière"
   },
   "home": {
     "hero": {
-      "eyebrow": "Institution Al-Houda · Illzach",
+      "eyebrow": "Mosquée Al-Houda · Illzach",
       "title": "Un lieu de foi, de savoir et de partage.",
       "subtitle": "Une mosquée ouverte à tous, pour apprendre, se recueillir et grandir ensemble.",
       "cta": "Découvrir notre mosquée"
@@ -86,9 +85,7 @@
     "about": "Située à Illzach, notre mosquée est un lieu d'accueil, de spiritualité et de solidarité.",
     "quickLinks": "Liens rapides",
     "contact": "Contact",
-    "legal": "Informations légales",
     "privacy": "Politique de confidentialité",
-    "legalNotice": "Mentions légales",
     "rights": "Tous droits réservés.",
     "followUs": "Suivez-nous"
   },
@@ -105,12 +102,11 @@
     "retry": "Réessayer"
   },
   "header": {
-    "home": "Institution Al-Houda, retour à l'accueil"
+    "home": "Mosquée Al-Houda, retour à l'accueil"
   },
   "page": {
     "home": "Accueil",
-    "breadcrumb": "Fil d’Ariane",
-    "frenchOnly": "Ce contenu est disponible uniquement en français pour le moment."
+    "breadcrumb": "Fil d’Ariane"
   },
   "association": {
     "eyebrow": "Notre association",

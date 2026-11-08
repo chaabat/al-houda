@@ -2,10 +2,10 @@ import { ArrowRight, HeartHandshake, ShieldCheck, Wrench } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { CommissionsNav } from "@/components/commissions/commissions-nav";
 import { MosqueIcon } from "@/components/home/mosque-icon";
-import { FrenchOnlyNote } from "@/components/page/french-only-note";
 import { PageHeader } from "@/components/page/page-header";
 import { Container } from "@/components/ui/container";
 import { COMMISSIONS_OVERVIEW } from "@/content/commissions/overview";
+import { localized } from "@/content/localized";
 import { Link } from "@/i18n/navigation";
 import { initPage, navMetadata, type LocaleParams } from "@/lib/page";
 
@@ -19,7 +19,8 @@ const COMMISSIONS = [
 export const generateMetadata = (props: LocaleParams) => navMetadata(props, "commissions");
 
 export default async function CommissionsPage(props: LocaleParams) {
-  await initPage(props);
+  const locale = await initPage(props);
+  const overview = localized(COMMISSIONS_OVERVIEW, locale);
   const [tNav, t] = await Promise.all([getTranslations("nav"), getTranslations("commissions")]);
 
   return (
@@ -27,14 +28,12 @@ export default async function CommissionsPage(props: LocaleParams) {
       <PageHeader
         eyebrow={t("eyebrow")}
         title={t("title")}
-        lead={<span lang="fr">{COMMISSIONS_OVERVIEW.intro}</span>}
+        lead={overview.intro}
         crumbs={[{ label: tNav("commissions") }]}
       />
       <CommissionsNav current="/commissions" />
 
       <Container className="space-y-14 py-14">
-        <FrenchOnlyNote />
-
         <ul className="grid gap-5 md:grid-cols-2">
           {COMMISSIONS.map(({ key, href, Icon }) => {
             const ready = key === "worship";
@@ -58,8 +57,8 @@ export default async function CommissionsPage(props: LocaleParams) {
                         </span>
                       ) : null}
                     </span>
-                    <span lang="fr" className="mt-2 flex-1 text-ink/75">
-                      {ready ? COMMISSIONS_OVERVIEW.commissions.worship : t("soonCard")}
+                    <span className="mt-2 flex-1 text-ink/75">
+                      {ready ? overview.worshipCard : t("soonCard")}
                     </span>
                     <span className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-brand">
                       {t("readMore")}
@@ -76,11 +75,9 @@ export default async function CommissionsPage(props: LocaleParams) {
         </ul>
 
         <section
-          lang="fr"
-          dir="ltr"
           className="grid gap-5 rounded-[2rem] bg-brand p-8 text-white md:grid-cols-3 lg:p-12"
         >
-          {COMMISSIONS_OVERVIEW.points.map((point) => (
+          {overview.points.map((point) => (
             <div key={point.title}>
               <p className="font-serif text-xl font-semibold text-gold">{point.title}</p>
               <p className="mt-2 text-sm text-white/85">{point.text}</p>

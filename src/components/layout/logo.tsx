@@ -46,10 +46,10 @@ export function Logo({ className }: { className?: string }) {
     <span className={cn("inline-flex items-center gap-3", className)}>
       <LogoMark className="h-11 w-auto lg:h-12" />
       <span className="leading-none">
-        <span className="block font-serif text-base font-semibold text-brand lg:text-lg">
-          Institution
+        <span className="block font-logo text-base font-semibold text-brand lg:text-lg">
+          Mosquée
         </span>
-        <span className="mt-0.5 block font-serif text-xl font-semibold text-brand lg:text-[26px]">
+        <span className="mt-0.5 block font-logo text-xl font-semibold text-brand lg:text-[26px]">
           Al-Houda
         </span>
         <span className="mt-1.5 block ps-0.5 text-[10px] font-medium tracking-[0.55em] text-ink/70">

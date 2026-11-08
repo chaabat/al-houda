@@ -1,11 +1,11 @@
 import { HeartHandshake, Sprout, TrendingUp, UsersRound } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { FrenchOnlyNote } from "@/components/page/french-only-note";
 import { PageHeader } from "@/components/page/page-header";
 import { TeachingCtas } from "@/components/teaching/teaching-ctas";
 import { TeachingNav } from "@/components/teaching/teaching-nav";
 import { Container } from "@/components/ui/container";
-import { TEACHING } from "@/content/teaching/overview";
+import { localized } from "@/content/localized";
+import { TEACHING as TEACHING_CONTENT } from "@/content/teaching/overview";
 import { initPage, navMetadata, type LocaleParams } from "@/lib/page";
 
 const VALUE_ICONS = [HeartHandshake, Sprout, TrendingUp];
@@ -13,7 +13,8 @@ const VALUE_ICONS = [HeartHandshake, Sprout, TrendingUp];
 export const generateMetadata = (props: LocaleParams) => navMetadata(props, "teachers");
 
 export default async function TeamPage(props: LocaleParams) {
-  await initPage(props);
+  const locale = await initPage(props);
+  const TEACHING = localized(TEACHING_CONTENT, locale);
   const [tNav, t] = await Promise.all([getTranslations("nav"), getTranslations("teaching")]);
 
   return (
@@ -28,11 +29,7 @@ export default async function TeamPage(props: LocaleParams) {
       <TeachingNav current="/teaching/team" />
 
       <Container className="space-y-10 py-14">
-        <FrenchOnlyNote />
-
         <section
-          lang="fr"
-          dir="ltr"
           className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16"
         >
           <div>

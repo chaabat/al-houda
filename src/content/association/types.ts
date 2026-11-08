@@ -18,5 +18,7 @@ export type LegalDocument = {
   intro?: string;
   identity?: [string, string][];
   signed: string;
+  /** Shown on translated versions: only the French text is legally binding. */
+  translationNote?: string;
   articles: LegalArticle[];
 };

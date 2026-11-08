@@ -7,7 +7,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SmartLink } from "@/components/ui/smart-link";
 import { REGISTRATION_URL } from "@/config/site";
-import { TEACHING } from "@/content/teaching/overview";
+import { localized } from "@/content/localized";
+import { TEACHING as TEACHING_CONTENT } from "@/content/teaching/overview";
 import { initPage, navMetadata, type LocaleParams } from "@/lib/page";
 
 const SUBJECT_ICONS = { arabic: Languages, quran: BookOpenText } as const;
@@ -15,7 +16,8 @@ const SUBJECT_ICONS = { arabic: Languages, quran: BookOpenText } as const;
 export const generateMetadata = (props: LocaleParams) => navMetadata(props, "courses");
 
 export default async function CoursesPage(props: LocaleParams) {
-  await initPage(props);
+  const locale = await initPage(props);
+  const TEACHING = localized(TEACHING_CONTENT, locale);
   const [tNav, t] = await Promise.all([getTranslations("nav"), getTranslations("teaching")]);
 
   return (
@@ -23,7 +25,7 @@ export default async function CoursesPage(props: LocaleParams) {
       <PageHeader
         eyebrow={TEACHING.eyebrow}
         title={tNav("courses")}
-        lead={<span lang="fr">{TEACHING.program.intro}</span>}
+        lead={TEACHING.program.intro}
         crumbs={[{ label: tNav("teaching"), href: "/teaching" }, { label: tNav("courses") }]}
       >
         <TeachingCtas />
@@ -32,9 +34,9 @@ export default async function CoursesPage(props: LocaleParams) {
 
       <Container className="space-y-10 py-14">
         {/* The two subjects of the programme (edit src/content/teaching/overview.ts). */}
-        <ul lang="fr" dir="ltr" className="grid gap-5 lg:grid-cols-2">
+        <ul className="grid gap-5 lg:grid-cols-2">
           {TEACHING.program.subjects.map((subject) => {
-            const Icon = SUBJECT_ICONS[subject.key as keyof typeof SUBJECT_ICONS];
+            const Icon = SUBJECT_ICONS[subject.key];
             return (
               <li
                 key={subject.key}

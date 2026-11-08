@@ -1,5 +1,5 @@
 import type messages from "../../messages/fr.json";
-import { REGISTRATION_URL, SITE } from "./site";
+import { DONATION_URL, REGISTRATION_URL, SITE } from "./site";
 
 export type NavKey = keyof (typeof messages)["nav"];
 
@@ -51,7 +51,7 @@ export const NAV: NavItem[] = [
         : []),
     ],
   },
-  // Donations are collected on HelloAsso (falls back to the local page if the link is removed).
-  { key: "donations", href: SITE.links.helloasso || "/donations" },
+  // Donations are collected on HelloAsso.
+  { key: "donations", href: DONATION_URL },
   { key: "contact", href: "/contact" },
 ];

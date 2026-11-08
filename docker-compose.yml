@@ -3,7 +3,6 @@
 #   Production    : docker compose --profile prod up -d --build site   → http://localhost:8080/fr
 
 services:
-  
   web:
     build:
       context: .

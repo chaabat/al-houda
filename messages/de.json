@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteName": "Institution Al-Houda · Illzach",
-    "title": "Institution Al-Houda · Illzach",
+    "siteName": "Moschee Al-Houda · Illzach",
+    "title": "Moschee Al-Houda · Illzach",
     "description": "Ein Ort des Glaubens, des Wissens und des Miteinanders. Moschee in Illzach: Gebetszeiten, Unterricht, Neuigkeiten und Spenden."
   },
   "a11y": {
@@ -36,12 +36,11 @@
     "portal": "Bildungsportal",
     "donations": "Spenden",
     "contact": "Kontakt",
-    "prayerTimes": "Gebetszeiten",
-    "news": "Neuigkeiten"
+    "prayerTimes": "Gebetszeiten"
   },
   "home": {
     "hero": {
-      "eyebrow": "Institution Al-Houda · Illzach",
+      "eyebrow": "Moschee Al-Houda · Illzach",
       "title": "Ein Ort des Glaubens, des Wissens und des Miteinanders.",
       "subtitle": "Eine Moschee für alle: zum Lernen, zur Einkehr und um gemeinsam zu wachsen.",
       "cta": "Unsere Moschee entdecken"
@@ -86,9 +85,7 @@
     "about": "Unsere Moschee in Illzach ist ein Ort der Gastfreundschaft, der Spiritualität und der Solidarität.",
     "quickLinks": "Schnellzugriff",
     "contact": "Kontakt",
-    "legal": "Rechtliche Hinweise",
     "privacy": "Datenschutzerklärung",
-    "legalNotice": "Impressum",
     "rights": "Alle Rechte vorbehalten.",
     "followUs": "Folgen Sie uns"
   },
@@ -105,12 +102,11 @@
     "retry": "Erneut versuchen"
   },
   "header": {
-    "home": "Institution Al-Houda, zur Startseite"
+    "home": "Moschee Al-Houda, zur Startseite"
   },
   "page": {
     "home": "Startseite",
-    "breadcrumb": "Brotkrumen-Navigation",
-    "frenchOnly": "Dieser Inhalt ist derzeit nur auf Französisch verfügbar."
+    "breadcrumb": "Brotkrumen-Navigation"
   },
   "association": {
     "eyebrow": "Unser Verein",

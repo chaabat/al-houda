@@ -1,10 +1,10 @@
 import { ArrowRight, HandHeart, Landmark, Megaphone, ScrollText, UserPlus } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { AssociationNav } from "@/components/association/association-nav";
-import { FrenchOnlyNote } from "@/components/page/french-only-note";
 import { PageHeader } from "@/components/page/page-header";
 import { Container } from "@/components/ui/container";
 import { OVERVIEW } from "@/content/association/overview";
+import { localized } from "@/content/localized";
 import { Link } from "@/i18n/navigation";
 import { initPage, navMetadata, type LocaleParams } from "@/lib/page";
 
@@ -19,7 +19,8 @@ const PAGES = [
 export const generateMetadata = (props: LocaleParams) => navMetadata(props, "association");
 
 export default async function AssociationPage(props: LocaleParams) {
-  await initPage(props);
+  const locale = await initPage(props);
+  const overview = localized(OVERVIEW, locale);
   const [tNav, t] = await Promise.all([getTranslations("nav"), getTranslations("association")]);
 
   return (
@@ -27,21 +28,19 @@ export default async function AssociationPage(props: LocaleParams) {
       <PageHeader
         eyebrow={t("eyebrow")}
         title="Association Al-Houda"
-        lead={OVERVIEW.intro}
+        lead={overview.intro}
         crumbs={[{ label: tNav("association") }]}
       />
       <AssociationNav current="/association" />
 
       <Container className="space-y-14 py-14">
-        <FrenchOnlyNote />
-
-        <div lang="fr" dir="ltr" className="space-y-14">
+        <div className="space-y-14">
           <section aria-labelledby="facts-title">
             <h2 id="facts-title" className="sr-only">
               {t("keyFacts")}
             </h2>
             <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {OVERVIEW.facts.map((fact) => (
+              {overview.facts.map((fact) => (
                 <div
                   key={fact.label}
                   className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-brand/10"
@@ -49,7 +48,12 @@ export default async function AssociationPage(props: LocaleParams) {
                   <dt className="text-xs font-semibold tracking-[0.2em] text-gold uppercase">
                     {fact.label}
                   </dt>
-                  <dd className="mt-2 font-serif text-xl font-semibold text-brand">{fact.value}</dd>
+                  <dd
+                    dir="auto"
+                    className="mt-2 font-serif text-xl font-semibold text-brand rtl:text-right"
+                  >
+                    {fact.value}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -72,7 +76,7 @@ export default async function AssociationPage(props: LocaleParams) {
                     <span className="mt-4 font-serif text-xl font-semibold text-brand">
                       {key === "editorial" ? t("editorialShort") : tNav(key)}
                     </span>
-                    <span className="mt-1 flex-1 text-sm text-ink/75">{OVERVIEW.pages[key]}</span>
+                    <span className="mt-1 flex-1 text-sm text-ink/75">{overview.pages[key]}</span>
                     <span className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-brand">
                       {t("readMore")}
                       <ArrowRight
@@ -98,7 +102,7 @@ export default async function AssociationPage(props: LocaleParams) {
               {t("ourValues")}
             </h2>
             <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {OVERVIEW.values.map((value) => (
+              {overview.values.map((value) => (
                 <li key={value.title} className="rounded-2xl bg-white/8 p-5 ring-1 ring-white/10">
                   <p className="font-serif text-xl font-semibold text-gold">{value.title}</p>
                   <p className="mt-2 text-sm text-white/85">{value.text}</p>

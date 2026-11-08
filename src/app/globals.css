@@ -8,12 +8,95 @@
   --color-gold: #d9a441;
   --color-ink: #172b26;
   --color-sage: #eef2ea;
+
+  /* Home page animations (faith sections, agenda). */
+  --animate-twinkle: twinkle 3.5s ease-in-out infinite;
+  --animate-spin-slow: spin 90s linear infinite;
+  --animate-spin-slow-reverse: spin-reverse 120s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-verse-in: verse-in 0.9s ease-out both;
+  --animate-marquee: marquee 55s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 55s linear infinite;
+  --animate-ring: ring 4s ease-in-out infinite;
+
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.15;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+  @keyframes spin-reverse {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes verse-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes ring {
+    0%,
+    70%,
+    100% {
+      transform: rotate(0);
+    }
+    75% {
+      transform: rotate(14deg);
+    }
+    80% {
+      transform: rotate(-12deg);
+    }
+    85% {
+      transform: rotate(8deg);
+    }
+    90% {
+      transform: rotate(-4deg);
+    }
+  }
 }
 
 /* Latin fonts first, Arabic fonts as fallback for Arabic glyphs. */
 @theme inline {
   --font-sans: var(--font-inter), var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), var(--font-naskh), ui-serif, Georgia, serif;
+  /* "font-serif" is the title font: Plus Jakarta Sans (Latin) and Cairo (Arabic). */
+  --font-serif: var(--font-jakarta), var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
+  /* Logo wordmark keeps its classic serif. */
+  --font-logo: var(--font-playfair), var(--font-naskh), ui-serif, Georgia, serif;
 }
 
 @layer base {
@@ -29,5 +112,19 @@
   ::selection {
     background: var(--color-gold);
     color: var(--color-ink);
+  }
+}
+
+/* Respect visitors who turn off animations in their system settings. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-twinkle,
+  .animate-spin-slow,
+  .animate-spin-slow-reverse,
+  .animate-float,
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-ring,
+  .animate-verse-in {
+    animation: none;
   }
 }

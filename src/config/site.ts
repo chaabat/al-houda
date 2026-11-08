@@ -56,6 +56,9 @@ export const SITE: SiteConfig = {
 
 export const REGISTRATION_URL = SITE.links.registrationForm || "/contact";
 
+/** Donation link (HelloAsso); falls back to the contact page if the link is removed. */
+export const DONATION_URL = SITE.links.helloasso || "/contact";
+
 /**
  * "Choisissez un contact" on the contact page → mailbox that receives the message.
  * An empty address falls back to contact@. Each address must be activated once on FormSubmit
